@@ -8,6 +8,8 @@ def resize_image(path, width):
     img = img.resize((int(width),hsize), Image.ANTIALIAS)
     img.save(path)
 
-def convert_image(path):
-    base = os.path.splitext(path)[0]
-    os.rename(path, base + '.jpg')
+def convert_image(path, fileCount):
+    img = Image.open(path)
+    img = img.convert('RGB')
+    img.save(f"./resimler/{fileCount}.jpg")
+    os.remove(path)

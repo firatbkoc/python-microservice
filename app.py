@@ -36,7 +36,7 @@ def pull_image():
     if "width" in params:
         image_processing.resize_image(filename, params['width'])
     if file_ext != ".jpg":
-        image_processing.convert_image(filename)
+        image_processing.convert_image(filename, fileCount)
 
     return jsonify({"dosya":f"http://127.0.0.1:5000/resimler/{fileCount}.jpg"})
 
